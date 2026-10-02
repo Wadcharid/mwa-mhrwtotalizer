@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบตรวจสอบและบันทึกมิเตอร์น้ำดิบ (Raw Water Totalizer - MS)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --primary-badge: #bae6fd;
+      --success: #10b981;
+      --success-light: #ecfdf5;
+      --warning: #f59e0b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-focus: #38bdf8;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 1.5rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: var(--card-bg);
+      padding: 1.25rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-title h1 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .header-title p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .header-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: var(--success-light);
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--success);
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    .info-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      font-weight: 500;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+
+    .btn-refresh {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s;
+    }
+
+    .btn-refresh:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Highlight Banner */
+    .summary-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .banner-left h2 {
+      font-size: 1.05rem;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+
+    .banner-left .main-number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.5px;
+      margin-top: 0.25rem;
+      line-height: 1.1;
+    }
+
+    .banner-left .unit {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+
+    .banner-right {
+      text-align: right;
+    }
+
+    .banner-right .record-date {
+      font-size: 1.15rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
+      display: inline-block;
+      backdrop-filter: blur(4px);
+    }
+
+    .banner-right .updated-time {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-top: 0.4rem;
+    }
+
+    /* Grid for Phase 1-4 */
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .phase-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .phase-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .phase-card .card-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .phase-card .card-title-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .phase-card .badge-id {
+      font-size: 0.725rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .phase-card .meter-reading {
+      font-size: 1.65rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-main);
+      margin-top: 0.25rem;
+    }
+
+    .phase-card .meter-sub {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .phase-card .volume-badge {
+      font-weight: 600;
+      color: #0284c7;
+      background: #f0f9ff;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid #e0f2fe;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* History Table Section */
+    .history-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .history-header h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .history-header span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table.history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.925rem;
+      text-align: right;
+    }
+
+    table.history-table th,
+    table.history-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.history-table th {
+      background: #f8fafc;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    table.history-table th:first-child,
+    table.history-table td:first-child {
+      text-align: left;
+    }
+
+    table.history-table tbody tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    table.history-table tbody tr.row-latest {
+      background-color: #f0f9ff;
+      font-weight: 600;
+    }
+
+    table.history-table .sub-vol {
+      display: block;
+      font-size: 0.775rem;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    table.history-table .col-total {
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+    }
+
+    table.history-table .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Meter Images Section */
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .section-title .archive-info {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .images-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 650px) {
+      .images-grid {
+        grid-template-columns: 1fr;
+      }
+      .banner-right {
+        text-align: left;
+      }
+      body {
+        padding: 0.75rem;
+      }
+    }
+
+    .image-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-card-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fafafa;
+    }
+
+    .image-card-header h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .image-card-header span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .image-wrapper {
+      position: relative;
+      background: #1e293b;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.02);
+    }
+
+    .image-wrapper .overlay-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      pointer-events: none;
+    }
+
+    .image-card-footer {
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #fff;
+    }
+
+    .image-card-footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .image-card-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal / Lightbox */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-caption {
+      color: #e2e8f0;
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-title">
+        <h1>💧 รายงานมิเตอร์น้ำดิบประจำวัน</h1>
+        <p>โรงกรองน้ำมหาสวัสดิ์ (MS) • เชื่อมโยงข้อมูลผ่าน MWA aquaDAT API</p>
+      </div>
+      <div class="header-badges">
+        <div class="status-badge" id="system-status">
+          <span class="status-dot"></span>
+          <span id="status-text">ระบบทำงานปกติ</span>
+        </div>
+        <div class="info-badge">
+          📁 คลังภาพ: <strong id="archive-count" style="margin: 0 0.2rem;">0</strong> / 300 ภาพ
+        </div>
+        <button class="btn-refresh" onclick="loadData()">
+          🔄 รีเฟรช
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Summary Banner -->
+    <div class="summary-banner">
+      <div class="banner-left">
+        <h2>ปริมาณน้ำดิบรวมล่าสุด (Raw Water CMD Total)</h2>
+        <div class="main-number">
+          <span id="rw-cmd-total">---,---</span>
+          <span class="unit">ลบ.ม./วัน</span>
+        </div>
+      </div>
+      <div class="banner-right">
+        <div class="record-date">
+          📅 สิ้นสุดวันที่: <span id="record-date">--/--/----</span>
+        </div>
+        <div class="updated-time">
+          🕒 ตัดยอด 24:00 น. | อัปเดตเมื่อ: <span id="updated-at">--:--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 1 - 4 Cards (วันล่าสุด) -->
+    <div class="phases-grid">
+      <div class="phase-card">
+        <div class="card-header-line">
+          <span class="card-title-text">เฟส 1 (LINE A)</span>
+          <span class="badge-id">ID 4 • RW12</span>
+        </div>
+        <div class="meter-reading" id="meter-ph1">---</div>
+        <div class="meter-sub">
+          <span>ปริมาณน้ำ:</span>
+          <span class="volume-badge" id="vol-ph1">+0 ลบ.ม.</span>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="card-header-line">
+          <span class="card-title-text">เฟส 2 (LINE B)</span>
+          <span class="badge-id">ID 7 • RW12</span>
+        </div>
+        <div class="meter-reading" id="meter-ph2">---</div>
+        <div class="meter-sub">
+          <span>ปริมาณน้ำ:</span>
+          <span class="volume-badge" id="vol-ph2">+0 ลบ.ม.</span>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="card-header-line">
+          <span class="card-title-text">เฟส 3 (LINE C)</span>
+          <span class="badge-id">ID 42 • RW34</span>
+        </div>
+        <div class="meter-reading" id="meter-ph3">---</div>
+        <div class="meter-sub">
+          <span>ปริมาณน้ำ:</span>
+          <span class="volume-badge" id="vol-ph3">+0 ลบ.ม.</span>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="card-header-line">
+          <span class="card-title-text">เฟส 4 (LINE D)</span>
+          <span class="badge-id">ID 44 • RW34</span>
+        </div>
+        <div class="meter-reading" id="meter-ph4">---</div>
+        <div class="meter-sub">
+          <span>ปริมาณน้ำ:</span>
+          <span class="volume-badge" id="vol-ph4">+0 ลบ.ม.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-Day Historical Table -->
+    <div class="history-card">
+      <div class="history-header">
+        <h3>📊 ประวัติข้อมูลมิเตอร์และปริมาณน้ำ 5 วันย้อนหลัง</h3>
+        <span>สูตร: ปริมาณน้ำ = (มิเตอร์ปัจจุบัน - วันก่อนหน้า) × 100</span>
+      </div>
+      <div class="table-container">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>วันที่ตัดยอด (24:00 น.)</th>
+              <th>เฟส 1 (LINE A, ID 4)</th>
+              <th>เฟส 2 (LINE B, ID 7)</th>
+              <th>เฟส 3 (LINE C, ID 42)</th>
+              <th>เฟส 4 (LINE D, ID 44)</th>
+              <th>ปริมาณน้ำดิบรวม (ลบ.ม.)</th>
+            </tr>
+          </thead>
+          <tbody id="history-table-body">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 2rem; color: #94a3b8;">กำลังโหลดข้อมูลประวัติ 5 วัน...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Meter Images Section -->
+    <div class="section-title">
+      <div>📷 ภาพถ่ายหน้าปัดมิเตอร์ล่าสุด</div>
+      <div class="archive-info">บันทึกอัตโนมัติช่วงเวลา 23:30 - 00:20 น. (ทุกๆ 10 นาที)</div>
+    </div>
+
+    <div class="images-grid">
+      <!-- Card RW12 -->
+      <div class="image-card">
+        <div class="image-card-header">
+          <h3>มิเตอร์น้ำดิบ RW 12 (เฟส 1 - 2)</h3>
+          <span id="rw12-time">ล่าสุด</span>
+        </div>
+        <div class="image-wrapper" onclick="openModal('img-rw12', 'ภาพหน้าปัดมิเตอร์ RW 12 (เฟส 1-2)')">
+          <img id="img-rw12" src="images/RW12_latest.jpg" alt="ภาพมิเตอร์ RW12" onerror="handleImageError(this, 'RW 12')">
+          <div class="overlay-hint">🔍 คลิกเพื่อดูรูปขยาย</div>
+        </div>
+        <div class="image-card-footer">
+          <span>แหล่งที่มา: 172.16.198.28</span>
+          <a href="images/RW12_latest.jpg" target="_blank" id="link-rw12">เปิดดูภาพเต็ม ↗</a>
+        </div>
+      </div>
+
+      <!-- Card RW34 -->
+      <div class="image-card">
+        <div class="image-card-header">
+          <h3>มิเตอร์น้ำดิบ RW 34 (เฟส 3 - 4)</h3>
+          <span id="rw34-time">ล่าสุด</span>
+        </div>
+        <div class="image-wrapper" onclick="openModal('img-rw34', 'ภาพหน้าปัดมิเตอร์ RW 34 (เฟส 3-4)')">
+          <img id="img-rw34" src="images/RW34_latest.jpg" alt="ภาพมิเตอร์ RW34" onerror="handleImageError(this, 'RW 34')">
+          <div class="overlay-hint">🔍 คลิกเพื่อดูรูปขยาย</div>
+        </div>
+        <div class="image-card-footer">
+          <span>แหล่งที่มา: 172.17.198.114</span>
+          <a href="images/RW34_latest.jpg" target="_blank" id="link-rw34">เปิดดูภาพเต็ม ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>ระบบรายงานข้อมูลมิเตอร์น้ำดิบอัตโนมัติ • รองรับการเปิดดูจากทุกอุปกรณ์ (Mobile / Tablet / PC)</p>
+    </footer>
+  </div>
+
+  <!-- Modal / Lightbox -->
+  <div class="modal" id="image-modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img id="modal-img" src="" alt="ขยายภาพ">
+      <div class="modal-caption" id="modal-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    async function loadData() {
+      const statusText = document.getElementById("status-text");
+      const systemStatus = document.getElementById("system-status");
+
+      try {
+        const response = await fetch('data.json?t=' + new Date().getTime());
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+
+        const data = await response.json();
+
+        // 1. แสดงผลการ์ดสรุปวันล่าสุด
+        document.getElementById("rw-cmd-total").innerText = data.rw_cmd_total || '-';
+        document.getElementById("record-date").innerText = data.record_date || '-';
+        document.getElementById("updated-at").innerText = data.updated_at || '-';
+
+        document.getElementById("meter-ph1").innerText = data.totalizer_rw_ph1 || '-';
+        document.getElementById("vol-ph1").innerText = '+' + (data.volume_rw_ph1 || '0') + ' ลบ.ม.';
+
+        document.getElementById("meter-ph2").innerText = data.totalizer_rw_ph2 || '-';
+        document.getElementById("vol-ph2").innerText = '+' + (data.volume_rw_ph2 || '0') + ' ลบ.ม.';
+
+        document.getElementById("meter-ph3").innerText = data.totalizer_rw_ph3 || '-';
+        document.getElementById("vol-ph3").innerText = '+' + (data.volume_rw_ph3 || '0') + ' ลบ.ม.';
+
+        document.getElementById("meter-ph4").innerText = data.totalizer_rw_ph4 || '-';
+        document.getElementById("vol-ph4").innerText = '+' + (data.volume_rw_ph4 || '0') + ' ลบ.ม.';
+
+        if (data.archive_count !== undefined) {
+          document.getElementById("archive-count").innerText = data.archive_count;
+        }
+
+        // 2. แสดงผลตาราง 5 วันย้อนหลัง
+        const tbody = document.getElementById("history-table-body");
+        tbody.innerHTML = "";
+
+        if (data.history_5days && data.history_5days.length > 0) {
+          // เรียงจากวันล่าสุดลงมาวันก่อนหน้า
+          const reversedHistory = [...data.history_5days].reverse();
+
+          reversedHistory.forEach((row, idx) => {
+            const tr = document.createElement("tr");
+            if (idx === 0) tr.classList.add("row-latest");
+
+            tr.innerHTML = `
+              <td>
+                <strong>${row.date}</strong>
+                ${idx === 0 ? '<span style="font-size:0.75rem; color:#0284c7; margin-left:0.3rem;">(ล่าสุด)</span>' : ''}
+              </td>
+              <td>
+                <span class="mono">${row.meter_ph1}</span>
+                <span class="sub-vol">+${row.vol_ph1} ลบ.ม.</span>
+              </td>
+              <td>
+                <span class="mono">${row.meter_ph2}</span>
+                <span class="sub-vol">+${row.vol_ph2} ลบ.ม.</span>
+              </td>
+              <td>
+                <span class="mono">${row.meter_ph3}</span>
+                <span class="sub-vol">+${row.vol_ph3} ลบ.ม.</span>
+              </td>
+              <td>
+                <span class="mono">${row.meter_ph4}</span>
+                <span class="sub-vol">+${row.vol_ph4} ลบ.ม.</span>
+              </td>
+              <td class="col-total">${row.total_volume}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        } else {
+          tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 2rem; color: #94a3b8;">ไม่พบข้อมูลประวัติ 5 วันย้อนหลัง</td></tr>`;
+        }
+
+        // 3. จัดการรูปภาพ
+        const ts = new Date().getTime();
+        const rw12Src = (data.images && data.images.RW12 ? data.images.RW12 : 'images/RW12_latest.jpg') + '?t=' + ts;
+        const rw34Src = (data.images && data.images.RW34 ? data.images.RW34 : 'images/RW34_latest.jpg') + '?t=' + ts;
+
+        document.getElementById("img-rw12").src = rw12Src;
+        document.getElementById("img-rw34").src = rw34Src;
+        document.getElementById("link-rw12").href = rw12Src;
+        document.getElementById("link-rw34").href = rw34Src;
+
+        if (data.images_time) {
+          if (data.images_time.RW12) document.getElementById("rw12-time").innerText = data.images_time.RW12;
+          if (data.images_time.RW34) document.getElementById("rw34-time").innerText = data.images_time.RW34;
+        }
+
+        statusText.innerText = "อัปเดตข้อมูลสำเร็จ";
+        systemStatus.style.background = "#ecfdf5";
+        systemStatus.style.color = "#065f46";
+      } catch (err) {
+        console.warn('ไม่สามารถโหลด data.json ได้:', err);
+        statusText.innerText = "กำลังรอข้อมูล หรือยังไม่ได้รันสคริปต์";
+        systemStatus.style.background = "#fffbeb";
+        systemStatus.style.color = "#b45309";
+      }
+    }
+
+    function handleImageError(img, name) {
+      img.onerror = null;
+      img.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23334155%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%2394a3b8%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3E%E0%B8%A3%E0%B8%AD%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%A1%E0%B8%B4%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C%20' + encodeURIComponent(name) + '%3C%2Ftext%3E%3C%2Fsvg%3E';
+    }
+
+    function openModal(imgId, caption) {
+      const modal = document.getElementById("image-modal");
+      const modalImg = document.getElementById("modal-img");
+      const modalCaption = document.getElementById("modal-caption");
+      const targetImg = document.getElementById(imgId);
+
+      modal.classList.add("active");
+      modalImg.src = targetImg.src;
+      modalCaption.innerText = caption;
+    }
+
+    function closeModal() {
+      document.getElementById("image-modal").classList.remove("active");
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeModal();
+    });
+
+    window.addEventListener("DOMContentLoaded", loadData);
+  </script>
+</body>
+</html>
