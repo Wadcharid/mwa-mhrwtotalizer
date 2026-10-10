@@ -1,5 +1,5 @@
 {
-  "updated_at": "10/10/2026 23:30:25",
+  "updated_at": "10/10/2026 23:40:11",
   "record_date": "10/10/2026",
   "rw_cmd_total": "1,567,000",
   "totalizer_rw_ph1": "3475530",
@@ -132,15 +132,15 @@
       }
     }
   ],
-  "archive_count": 38,
+  "archive_count": 40,
   "max_archive_limit": 300,
   "images": {
     "RW12": "images/RW12_latest.jpg",
     "RW34": "images/RW34_latest.jpg"
   },
   "images_time": {
-    "RW12": "10/10/2026 23:30:18",
-    "RW34": "10/10/2026 23:30:22"
+    "RW12": "10/10/2026 23:40:07",
+    "RW34": "10/10/2026 23:40:10"
   },
   "status": "success",
   "message": "อัปเดตข้อมูลอัตโนมัติสำเร็จ"
