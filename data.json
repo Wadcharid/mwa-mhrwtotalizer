@@ -1,13 +1,13 @@
 {
-  "updated_at": "24/10/2026 00:00:15",
+  "updated_at": "24/10/2026 00:10:15",
   "record_date": "23/10/2026",
-  "rw_cmd_total": "787,000",
-  "totalizer_rw_ph1": "0",
-  "totalizer_rw_ph2": "0",
+  "rw_cmd_total": "1,545,000",
+  "totalizer_rw_ph1": "3524350",
+  "totalizer_rw_ph2": "3523830",
   "totalizer_rw_ph3": "3808460",
   "totalizer_rw_ph4": "3295770",
-  "volume_rw_ph1": "0",
-  "volume_rw_ph2": "0",
+  "volume_rw_ph1": "371,000",
+  "volume_rw_ph2": "387,000",
   "volume_rw_ph3": "436,000",
   "volume_rw_ph4": "351,000",
   "history_5days": [
@@ -110,37 +110,37 @@
     {
       "date": "23/10/2026",
       "raw_date": "2026-10-23",
-      "meter_ph1": "0",
-      "vol_ph1": "0",
-      "meter_ph2": "0",
-      "vol_ph2": "0",
+      "meter_ph1": "3524350",
+      "vol_ph1": "371,000",
+      "meter_ph2": "3523830",
+      "vol_ph2": "387,000",
       "meter_ph3": "3808460",
       "vol_ph3": "436,000",
       "meter_ph4": "3295770",
       "vol_ph4": "351,000",
-      "total_volume": "787,000",
+      "total_volume": "1,545,000",
       "raw_values": {
-        "m1": 0.0,
-        "m2": 0.0,
+        "m1": 3524350.0,
+        "m2": 3523830.0,
         "m3": 3808460.0,
         "m4": 3295770.0,
-        "v1": 0,
-        "v2": 0,
+        "v1": 371000.0,
+        "v2": 387000.0,
         "v3": 436000.0,
         "v4": 351000.0,
-        "total": 787000.0
+        "total": 1545000.0
       }
     }
   ],
-  "archive_count": 174,
+  "archive_count": 176,
   "max_archive_limit": 300,
   "images": {
     "RW12": "images/RW12_latest.jpg",
     "RW34": "images/RW34_latest.jpg"
   },
   "images_time": {
-    "RW12": "24/10/2026 00:00:10",
-    "RW34": "24/10/2026 00:00:13"
+    "RW12": "24/10/2026 00:10:07",
+    "RW34": "24/10/2026 00:10:10"
   },
   "status": "success",
   "message": "อัปเดตข้อมูลอัตโนมัติสำเร็จ"
