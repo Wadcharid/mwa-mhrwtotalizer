@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ระบบตรวจสอบและบันทึกมิเตอร์น้ำดิบ (Raw Water Totalizer - MS)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -107,7 +107,7 @@
     .info-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
       padding: 0.4rem 0.85rem;
       border-radius: 9999px;
       font-size: 0.825rem;
@@ -292,25 +292,9 @@
       gap: 0.5rem;
     }
 
-    .history-header-meta {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem;
+    .history-header span {
       font-size: 0.85rem;
       color: var(--text-muted);
-    }
-
-    .click-hint-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 9999px;
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      font-size: 0.78rem;
-      font-weight: 600;
     }
 
     .table-container {
@@ -352,23 +336,6 @@
       font-weight: 600;
     }
 
-    table.history-table tbody tr.row-has-image {
-      cursor: pointer;
-    }
-
-    table.history-table tbody tr.row-selected {
-      background-color: #e0f2fe;
-      box-shadow: inset 3px 0 0 var(--primary);
-    }
-
-    .row-img-badge {
-      display: inline-block;
-      margin-left: 0.35rem;
-      font-size: 0.78rem;
-      color: var(--primary-dark);
-      opacity: 0.85;
-    }
-
     table.history-table .sub-vol {
       display: block;
       font-size: 0.775rem;
@@ -392,7 +359,7 @@
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 0.85rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -404,124 +371,6 @@
       font-size: 0.85rem;
       font-weight: 400;
       color: var(--text-muted);
-    }
-
-    /* 60-Day History Control Toolbar */
-    .history-toolbar {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 0.9rem 1.25rem;
-      margin-bottom: 1.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.85rem;
-    }
-
-    .toolbar-controls {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .toolbar-btn {
-      background: #f8fafc;
-      color: var(--text-main);
-      border: 1px solid var(--border);
-      padding: 0.45rem 0.85rem;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
-    }
-
-    .toolbar-btn:hover:not(:disabled) {
-      background: var(--primary-light);
-      border-color: var(--border-focus);
-      color: var(--primary-dark);
-    }
-
-    .toolbar-btn:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    .toolbar-btn.btn-latest {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .toolbar-btn.btn-latest:hover:not(:disabled) {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
-      color: white;
-    }
-
-    .toolbar-select,
-    .toolbar-date-input {
-      font-family: inherit;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-main);
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.43rem 0.7rem;
-      min-height: 36px;
-      outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s;
-    }
-
-    .toolbar-select:focus,
-    .toolbar-date-input:focus {
-      border-color: var(--border-focus);
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-    }
-
-    .toolbar-right {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .toolbar-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.32rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      border: 1px solid var(--primary-badge);
-    }
-
-    .date-picker-notice {
-      font-size: 0.82rem;
-      color: #b45309;
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      padding: 0.28rem 0.7rem;
-      border-radius: 6px;
-      display: none;
-    }
-
-    .date-picker-notice.visible {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
     }
 
     .images-grid {
@@ -541,9 +390,6 @@
       body {
         padding: 0.75rem;
       }
-      .history-toolbar {
-        padding: 0.85rem;
-      }
     }
 
     .image-card {
@@ -562,8 +408,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
       background: #fafafa;
     }
 
@@ -619,50 +463,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
       font-size: 0.85rem;
       color: var(--text-muted);
       background: #fff;
     }
 
-    .footer-actions {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .footer-action-btn {
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      border: 1px solid var(--primary-badge);
-      padding: 0.3rem 0.7rem;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    .footer-action-btn:hover {
-      background: var(--primary-badge);
-    }
-
-    .footer-action-link {
+    .image-card-footer a {
       color: var(--primary);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.82rem;
+      font-weight: 500;
     }
 
-    .footer-action-link:hover {
+    .image-card-footer a:hover {
       text-decoration: underline;
-    }
-
-    .footer-action-link.disabled {
-      opacity: 0.4;
-      pointer-events: none;
     }
 
     /* Modal / Lightbox */
@@ -704,22 +517,19 @@
 
     .modal-close {
       position: absolute;
-      top: -42px;
+      top: -40px;
       right: 0;
-      background: transparent;
-      border: none;
       color: white;
       font-size: 2rem;
       font-weight: 700;
       cursor: pointer;
       line-height: 1;
-      padding: 0.25rem 0.5rem;
     }
 
     .modal-caption {
       color: #e2e8f0;
       margin-top: 0.75rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
       text-align: center;
     }
 
@@ -749,9 +559,9 @@
           <span id="status-text">ระบบทำงานปกติ</span>
         </div>
         <div class="info-badge">
-          🖼️ ภาพย้อนหลัง: <strong id="history-days-count">0</strong> / <span id="history-max-days">60</span> วัน
+          📁 คลังภาพ: <strong id="archive-count" style="margin: 0 0.2rem;">0</strong> / 300 ภาพ
         </div>
-        <button type="button" class="btn-refresh" onclick="loadData()">
+        <button class="btn-refresh" onclick="loadData()">
           🔄 รีเฟรช
         </button>
       </div>
@@ -831,10 +641,7 @@
     <div class="history-card">
       <div class="history-header">
         <h3>📊 ประวัติข้อมูลมิเตอร์และปริมาณน้ำ 5 วันย้อนหลัง</h3>
-        <div class="history-header-meta">
-          <span class="click-hint-pill" id="table-click-hint" style="display: none;">📷 คลิกแถวเพื่อดูภาพหน้าปัดวันนั้น</span>
-          <span>สูตร: ปริมาณน้ำ = (มิเตอร์ปัจจุบัน - วันก่อนหน้า) × 100</span>
-        </div>
+        <span>สูตร: ปริมาณน้ำ = (มิเตอร์ปัจจุบัน - วันก่อนหน้า) × 100</span>
       </div>
       <div class="table-container">
         <table class="history-table">
@@ -858,32 +665,9 @@
     </div>
 
     <!-- Meter Images Section -->
-    <div class="section-title" id="meter-images-section">
-      <div id="images-section-title">📷 ภาพถ่ายหน้าปัดมิเตอร์ล่าสุด</div>
-      <div class="archive-info">บันทึกอัตโนมัติช่วงเวลา 23:30 - 00:20 น. (เลือกภาพล่าสุดของแต่ละวัน • ย้อนหลัง 60 วัน)</div>
-    </div>
-
-    <!-- 60-Day History Navigation Toolbar -->
-    <div class="history-toolbar" id="history-toolbar">
-      <div class="toolbar-controls">
-        <button type="button" class="toolbar-btn" id="btn-prev-date" onclick="stepHistoryDate(1)" title="ดูวันก่อนหน้า">
-          ◀ วันก่อนหน้า
-        </button>
-        <select id="image-date-select" class="toolbar-select" aria-label="เลือกวันที่ดูภาพย้อนหลัง" onchange="onSelectHistoryIndex(this.value)">
-          <option value="0">กำลังโหลดวันที่...</option>
-        </select>
-        <input type="date" id="image-date-picker" class="toolbar-date-input" aria-label="เลือกวันที่จากปฏิทิน" onchange="onPickCalendarDate(this.value)">
-        <button type="button" class="toolbar-btn" id="btn-next-date" onclick="stepHistoryDate(-1)" title="ดูวันถัดไป">
-          วันถัดไป ▶
-        </button>
-        <button type="button" class="toolbar-btn btn-latest" id="btn-latest-date" onclick="selectHistoryIndex(0)">
-          ล่าสุด
-        </button>
-      </div>
-      <div class="toolbar-right">
-        <span class="date-picker-notice" id="date-picker-notice" role="status" aria-live="polite"></span>
-        <span class="toolbar-status-pill" id="toolbar-history-status">มีภาพ 0 / 60 วัน</span>
-      </div>
+    <div class="section-title">
+      <div>📷 ภาพถ่ายหน้าปัดมิเตอร์ล่าสุด</div>
+      <div class="archive-info">บันทึกอัตโนมัติช่วงเวลา 23:30 - 00:20 น. (ทุกๆ 10 นาที)</div>
     </div>
 
     <div class="images-grid">
@@ -893,16 +677,13 @@
           <h3>มิเตอร์น้ำดิบ RW 12 (เฟส 1 - 2)</h3>
           <span id="rw12-time">ล่าสุด</span>
         </div>
-        <div class="image-wrapper" onclick="openModal('img-rw12', 'RW 12 (เฟส 1-2)')">
+        <div class="image-wrapper" onclick="openModal('img-rw12', 'ภาพหน้าปัดมิเตอร์ RW 12 (เฟส 1-2)')">
           <img id="img-rw12" src="images/RW12_latest.jpg" alt="ภาพมิเตอร์ RW12" onerror="handleImageError(this, 'RW 12')">
           <div class="overlay-hint">🔍 คลิกเพื่อดูรูปขยาย</div>
         </div>
         <div class="image-card-footer">
           <span>แหล่งที่มา: 172.16.198.28</span>
-          <div class="footer-actions">
-            <button type="button" class="footer-action-btn" onclick="openModal('img-rw12', 'RW 12 (เฟส 1-2)')">🔍 ดูภาพขยาย</button>
-            <a href="images/RW12_latest.jpg" download="RW12.jpg" class="footer-action-link" id="link-rw12">⬇ ดาวน์โหลด</a>
-          </div>
+          <a href="images/RW12_latest.jpg" target="_blank" id="link-rw12">เปิดดูภาพเต็ม ↗</a>
         </div>
       </div>
 
@@ -912,16 +693,13 @@
           <h3>มิเตอร์น้ำดิบ RW 34 (เฟส 3 - 4)</h3>
           <span id="rw34-time">ล่าสุด</span>
         </div>
-        <div class="image-wrapper" onclick="openModal('img-rw34', 'RW 34 (เฟส 3-4)')">
+        <div class="image-wrapper" onclick="openModal('img-rw34', 'ภาพหน้าปัดมิเตอร์ RW 34 (เฟส 3-4)')">
           <img id="img-rw34" src="images/RW34_latest.jpg" alt="ภาพมิเตอร์ RW34" onerror="handleImageError(this, 'RW 34')">
           <div class="overlay-hint">🔍 คลิกเพื่อดูรูปขยาย</div>
         </div>
         <div class="image-card-footer">
           <span>แหล่งที่มา: 172.17.198.114</span>
-          <div class="footer-actions">
-            <button type="button" class="footer-action-btn" onclick="openModal('img-rw34', 'RW 34 (เฟส 3-4)')">🔍 ดูภาพขยาย</button>
-            <a href="images/RW34_latest.jpg" download="RW34.jpg" class="footer-action-link" id="link-rw34">⬇ ดาวน์โหลด</a>
-          </div>
+          <a href="images/RW34_latest.jpg" target="_blank" id="link-rw34">เปิดดูภาพเต็ม ↗</a>
         </div>
       </div>
     </div>
@@ -933,240 +711,21 @@
   </div>
 
   <!-- Modal / Lightbox -->
-  <div class="modal" id="image-modal" role="dialog" aria-modal="true" aria-labelledby="modal-caption" onclick="closeModal()">
+  <div class="modal" id="image-modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button type="button" class="modal-close" aria-label="ปิดหน้าต่าง" onclick="closeModal()">&times;</button>
+      <span class="modal-close" onclick="closeModal()">&times;</span>
       <img id="modal-img" src="" alt="ขยายภาพ">
       <div class="modal-caption" id="modal-caption"></div>
     </div>
   </div>
 
   <script>
-    let imageHistoryList = [];
-    let currentHistoryIndex = 0;
-    let maxRetentionDays = 60;
-    let lastLoadTimestamp = Date.now();
-    let noticeTimer = null;
-
-    function dmyToIso(dmy) {
-      if (!dmy || typeof dmy !== 'string') return '';
-      const parts = dmy.trim().split('/');
-      if (parts.length !== 3) return '';
-      return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
-    }
-
-    function isoToDmy(iso) {
-      if (!iso || typeof iso !== 'string') return iso || '-';
-      const parts = iso.trim().split('-');
-      if (parts.length !== 3) return iso;
-      return `${parts[2]}/${parts[1]}/${parts[0]}`;
-    }
-
-    function appendVersionParam(url, version) {
-      if (!url) return '';
-      const sep = url.includes('?') ? '&' : '?';
-      return `${url}${sep}v=${encodeURIComponent(version)}`;
-    }
-
-    function showDatePickerNotice(msg) {
-      const notice = document.getElementById("date-picker-notice");
-      notice.innerText = msg;
-      notice.classList.add("visible");
-      if (noticeTimer) clearTimeout(noticeTimer);
-      noticeTimer = setTimeout(() => {
-        notice.classList.remove("visible");
-      }, 4000);
-    }
-
-    function clearDatePickerNotice() {
-      const notice = document.getElementById("date-picker-notice");
-      notice.classList.remove("visible");
-      if (noticeTimer) {
-        clearTimeout(noticeTimer);
-        noticeTimer = null;
-      }
-    }
-
-    function buildFallbackHistory(data) {
-      const hasLegacyImages = data.images && (data.images.RW12 || data.images.RW34);
-      if (!hasLegacyImages) return [];
-      const rawDate = dmyToIso(data.record_date) || '';
-      return [{
-        date: data.record_date && data.record_date !== '-' ? data.record_date : 'ล่าสุด',
-        raw_date: rawDate,
-        rw12_url: data.images.RW12 || 'images/RW12_latest.jpg',
-        rw34_url: data.images.RW34 || 'images/RW34_latest.jpg',
-        rw12_time: (data.images_time && data.images_time.RW12) ? data.images_time.RW12 : 'ล่าสุด',
-        rw34_time: (data.images_time && data.images_time.RW34) ? data.images_time.RW34 : 'ล่าสุด',
-        version: lastLoadTimestamp
-      }];
-    }
-
-    function renderImageToolbar() {
-      const selectEl = document.getElementById("image-date-select");
-      const pickerEl = document.getElementById("image-date-picker");
-      const prevBtn = document.getElementById("btn-prev-date");
-      const nextBtn = document.getElementById("btn-next-date");
-      const latestBtn = document.getElementById("btn-latest-date");
-      const statusPill = document.getElementById("toolbar-history-status");
-
-      const totalDays = imageHistoryList.length;
-      document.getElementById("history-days-count").innerText = totalDays;
-      document.getElementById("history-max-days").innerText = maxRetentionDays;
-      statusPill.innerText = `มีภาพ ${totalDays} / ${maxRetentionDays} วัน`;
-
-      selectEl.innerHTML = "";
-      if (totalDays === 0) {
-        const opt = document.createElement("option");
-        opt.value = "0";
-        opt.innerText = "ยังไม่มีภาพย้อนหลัง";
-        selectEl.appendChild(opt);
-        selectEl.disabled = true;
-        pickerEl.disabled = true;
-        prevBtn.disabled = true;
-        nextBtn.disabled = true;
-        latestBtn.disabled = true;
-        return;
-      }
-
-      selectEl.disabled = false;
-      imageHistoryList.forEach((entry, idx) => {
-        const opt = document.createElement("option");
-        opt.value = String(idx);
-        opt.innerText = idx === 0 ? `${entry.date} (ล่าสุด)` : entry.date;
-        selectEl.appendChild(opt);
-      });
-      selectEl.value = String(currentHistoryIndex);
-
-      const rawDates = imageHistoryList.map(e => e.raw_date).filter(Boolean).sort();
-      if (rawDates.length > 0) {
-        pickerEl.disabled = false;
-        pickerEl.min = rawDates[0];
-        pickerEl.max = rawDates[rawDates.length - 1];
-        pickerEl.value = imageHistoryList[currentHistoryIndex].raw_date || '';
-      } else {
-        pickerEl.disabled = true;
-        pickerEl.value = '';
-      }
-
-      prevBtn.disabled = currentHistoryIndex >= totalDays - 1;
-      nextBtn.disabled = currentHistoryIndex <= 0;
-      latestBtn.disabled = currentHistoryIndex === 0;
-    }
-
-    function setCardImage(imgId, linkId, timeId, url, timeStr, labelName, rawDate, version) {
-      const imgEl = document.getElementById(imgId);
-      const linkEl = document.getElementById(linkId);
-      const timeEl = document.getElementById(timeId);
-
-      timeEl.innerText = timeStr || '-';
-      imgEl.dataset.captureTime = timeStr || '-';
-
-      if (url) {
-        const versionedUrl = appendVersionParam(url, version || lastLoadTimestamp);
-        imgEl.onerror = function() {
-          handleImageError(this, labelName);
-        };
-        imgEl.src = versionedUrl;
-        linkEl.href = url;
-        linkEl.setAttribute("download", `${labelName.replace(/\s+/g, '')}_${rawDate || 'latest'}.jpg`);
-        linkEl.classList.remove("disabled");
-      } else {
-        imgEl.onerror = null;
-        handleImageError(imgEl, labelName);
-        linkEl.href = "#";
-        linkEl.classList.add("disabled");
-      }
-    }
-
-    function updateTableSelectedRow() {
-      const currentEntry = imageHistoryList[currentHistoryIndex];
-      const currentRaw = currentEntry ? currentEntry.raw_date : '';
-      const rows = document.querySelectorAll("#history-table-body tr[data-raw-date]");
-      rows.forEach(tr => {
-        if (currentRaw && tr.dataset.rawDate === currentRaw) {
-          tr.classList.add("row-selected");
-        } else {
-          tr.classList.remove("row-selected");
-        }
-      });
-    }
-
-    function renderSelectedImageEntry() {
-      const titleEl = document.getElementById("images-section-title");
-      renderImageToolbar();
-      updateTableSelectedRow();
-
-      if (imageHistoryList.length === 0) {
-        titleEl.innerText = "📷 ภาพถ่ายหน้าปัดมิเตอร์ล่าสุด";
-        return;
-      }
-
-      const entry = imageHistoryList[currentHistoryIndex];
-      if (currentHistoryIndex === 0) {
-        titleEl.innerText = `📷 ภาพถ่ายหน้าปัดมิเตอร์ล่าสุด (วันที่ ${entry.date})`;
-      } else {
-        titleEl.innerText = `📷 ภาพถ่ายหน้าปัดมิเตอร์ย้อนหลัง (วันที่ ${entry.date})`;
-      }
-
-      const ver = entry.version || lastLoadTimestamp;
-      setCardImage("img-rw12", "link-rw12", "rw12-time", entry.rw12_url, entry.rw12_time, "RW 12", entry.raw_date, ver);
-      setCardImage("img-rw34", "link-rw34", "rw34-time", entry.rw34_url, entry.rw34_time, "RW 34", entry.raw_date, ver);
-    }
-
-    function selectHistoryIndex(idx, shouldScroll = false) {
-      if (imageHistoryList.length === 0) return;
-      const clamped = Math.max(0, Math.min(imageHistoryList.length - 1, Number(idx) || 0));
-      currentHistoryIndex = clamped;
-      clearDatePickerNotice();
-      renderSelectedImageEntry();
-
-      if (shouldScroll) {
-        const section = document.getElementById("meter-images-section");
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    }
-
-    function onSelectHistoryIndex(val) {
-      selectHistoryIndex(parseInt(val, 10), false);
-    }
-
-    function stepHistoryDate(delta) {
-      selectHistoryIndex(currentHistoryIndex + delta, false);
-    }
-
-    function onPickCalendarDate(pickedIso) {
-      if (!pickedIso) return;
-      const foundIdx = imageHistoryList.findIndex(item => item.raw_date === pickedIso);
-      if (foundIdx !== -1) {
-        selectHistoryIndex(foundIdx, false);
-      } else {
-        showDatePickerNotice(`ไม่พบภาพของวันที่ ${isoToDmy(pickedIso)}`);
-        const currentEntry = imageHistoryList[currentHistoryIndex];
-        document.getElementById("image-date-picker").value = (currentEntry && currentEntry.raw_date) ? currentEntry.raw_date : '';
-      }
-    }
-
-    function selectImageByRawDate(rawDate, shouldScroll = true) {
-      const idx = imageHistoryList.findIndex(item => item.raw_date === rawDate);
-      if (idx !== -1) {
-        selectHistoryIndex(idx, shouldScroll);
-      }
-    }
-
     async function loadData() {
       const statusText = document.getElementById("status-text");
       const systemStatus = document.getElementById("system-status");
-      lastLoadTimestamp = Date.now();
-
-      const previouslySelectedRawDate = (imageHistoryList[currentHistoryIndex] && imageHistoryList[currentHistoryIndex].raw_date)
-        ? imageHistoryList[currentHistoryIndex].raw_date
-        : null;
 
       try {
-        const response = await fetch('data.json?t=' + lastLoadTimestamp);
+        const response = await fetch('data.json?t=' + new Date().getTime());
         if (!response.ok) throw new Error('HTTP ' + response.status);
 
         const data = await response.json();
@@ -1188,58 +747,26 @@
         document.getElementById("meter-ph4").innerText = data.totalizer_rw_ph4 || '-';
         document.getElementById("vol-ph4").innerText = '+' + (data.volume_rw_ph4 || '0') + ' ลบ.ม.';
 
-        // 2. เตรียมรายการภาพย้อนหลัง (รองรับทั้งรูปแบบใหม่ 60 วัน และ fallback เดิม)
-        maxRetentionDays = data.history_retention_days || 60;
-        if (Array.isArray(data.image_history) && data.image_history.length > 0) {
-          imageHistoryList = data.image_history;
-        } else {
-          imageHistoryList = buildFallbackHistory(data);
+        if (data.archive_count !== undefined) {
+          document.getElementById("archive-count").innerText = data.archive_count;
         }
 
-        if (previouslySelectedRawDate) {
-          const keptIdx = imageHistoryList.findIndex(item => item.raw_date === previouslySelectedRawDate);
-          currentHistoryIndex = keptIdx !== -1 ? keptIdx : 0;
-        } else {
-          currentHistoryIndex = 0;
-        }
-
-        const availableDateSet = new Set(imageHistoryList.map(item => item.raw_date).filter(Boolean));
-
-        // 3. แสดงผลตาราง 5 วันย้อนหลัง (คลิกแถวเพื่อดูภาพวันนั้นได้)
+        // 2. แสดงผลตาราง 5 วันย้อนหลัง
         const tbody = document.getElementById("history-table-body");
         tbody.innerHTML = "";
-        let anyClickableRow = false;
 
         if (data.history_5days && data.history_5days.length > 0) {
+          // เรียงจากวันล่าสุดลงมาวันก่อนหน้า
           const reversedHistory = [...data.history_5days].reverse();
 
           reversedHistory.forEach((row, idx) => {
             const tr = document.createElement("tr");
             if (idx === 0) tr.classList.add("row-latest");
 
-            const rawDate = row.raw_date || dmyToIso(row.date);
-            if (rawDate) tr.dataset.rawDate = rawDate;
-
-            const hasImage = rawDate && availableDateSet.has(rawDate);
-            if (hasImage) {
-              anyClickableRow = true;
-              tr.classList.add("row-has-image");
-              tr.title = `คลิกเพื่อดูภาพหน้าปัดมิเตอร์วันที่ ${row.date}`;
-              tr.tabIndex = 0;
-              tr.addEventListener("click", () => selectImageByRawDate(rawDate, true));
-              tr.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  selectImageByRawDate(rawDate, true);
-                }
-              });
-            }
-
             tr.innerHTML = `
               <td>
                 <strong>${row.date}</strong>
                 ${idx === 0 ? '<span style="font-size:0.75rem; color:#0284c7; margin-left:0.3rem;">(ล่าสุด)</span>' : ''}
-                ${hasImage ? '<span class="row-img-badge" title="มีภาพถ่ายหน้าปัด">📷</span>' : ''}
               </td>
               <td>
                 <span class="mono">${row.meter_ph1}</span>
@@ -1265,10 +792,20 @@
           tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 2rem; color: #94a3b8;">ไม่พบข้อมูลประวัติ 5 วันย้อนหลัง</td></tr>`;
         }
 
-        document.getElementById("table-click-hint").style.display = anyClickableRow ? "inline-flex" : "none";
+        // 3. จัดการรูปภาพ
+        const ts = new Date().getTime();
+        const rw12Src = (data.images && data.images.RW12 ? data.images.RW12 : 'images/RW12_latest.jpg') + '?t=' + ts;
+        const rw34Src = (data.images && data.images.RW34 ? data.images.RW34 : 'images/RW34_latest.jpg') + '?t=' + ts;
 
-        // 4. แสดงผลภาพตามวันที่ที่เลือก
-        renderSelectedImageEntry();
+        document.getElementById("img-rw12").src = rw12Src;
+        document.getElementById("img-rw34").src = rw34Src;
+        document.getElementById("link-rw12").href = rw12Src;
+        document.getElementById("link-rw34").href = rw34Src;
+
+        if (data.images_time) {
+          if (data.images_time.RW12) document.getElementById("rw12-time").innerText = data.images_time.RW12;
+          if (data.images_time.RW34) document.getElementById("rw34-time").innerText = data.images_time.RW34;
+        }
 
         statusText.innerText = "อัปเดตข้อมูลสำเร็จ";
         systemStatus.style.background = "#ecfdf5";
@@ -1283,24 +820,18 @@
 
     function handleImageError(img, name) {
       img.onerror = null;
-      img.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23334155%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%2394a3b8%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3E%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%9E%E0%B8%9A%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%A1%E0%B8%B4%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C%20' + encodeURIComponent(name) + '%3C%2Ftext%3E%3C%2Fsvg%3E';
+      img.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23334155%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%2394a3b8%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3E%E0%B8%A3%E0%B8%AD%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%A1%E0%B8%B4%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C%20' + encodeURIComponent(name) + '%3C%2Ftext%3E%3C%2Fsvg%3E';
     }
 
-    function openModal(imgId, meterLabel) {
+    function openModal(imgId, caption) {
       const modal = document.getElementById("image-modal");
       const modalImg = document.getElementById("modal-img");
       const modalCaption = document.getElementById("modal-caption");
       const targetImg = document.getElementById(imgId);
-      const entry = imageHistoryList[currentHistoryIndex];
-      const dateText = entry ? `วันที่ ${entry.date}` : '';
-      const timeText = targetImg.dataset.captureTime ? `เวลาบันทึก ${targetImg.dataset.captureTime}` : '';
-      const details = [dateText, timeText].filter(Boolean).join(' • ');
 
       modal.classList.add("active");
       modalImg.src = targetImg.src;
-      modalCaption.innerText = details
-        ? `ภาพหน้าปัดมิเตอร์ ${meterLabel} (${details})`
-        : `ภาพหน้าปัดมิเตอร์ ${meterLabel}`;
+      modalCaption.innerText = caption;
     }
 
     function closeModal() {
