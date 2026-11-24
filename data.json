@@ -136,14 +136,285 @@
   "max_archive_limit": 300,
   "history_retention_days": 60,
   "release_tag": "meter-archive",
-  "image_history": [],
+  "image_history": [
+    {
+      "date": "23/11/2026",
+      "raw_date": "2026-11-23",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-23.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-23.jpg",
+      "rw12_time": "24/11/2026 00:00:07",
+      "rw34_time": "24/11/2026 00:00:10",
+      "version": 1795495894
+    },
+    {
+      "date": "22/11/2026",
+      "raw_date": "2026-11-22",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-22.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-22.jpg",
+      "rw12_time": "23/11/2026 00:00:09",
+      "rw34_time": "23/11/2026 00:00:11",
+      "version": 1795495893
+    },
+    {
+      "date": "21/11/2026",
+      "raw_date": "2026-11-21",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-21.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-21.jpg",
+      "rw12_time": "22/11/2026 00:00:08",
+      "rw34_time": "22/11/2026 00:00:10",
+      "version": 1795495893
+    },
+    {
+      "date": "20/11/2026",
+      "raw_date": "2026-11-20",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-20.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-20.jpg",
+      "rw12_time": "21/11/2026 00:00:07",
+      "rw34_time": "21/11/2026 00:00:09",
+      "version": 1795495892
+    },
+    {
+      "date": "19/11/2026",
+      "raw_date": "2026-11-19",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-19.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-19.jpg",
+      "rw12_time": "20/11/2026 00:00:07",
+      "rw34_time": "20/11/2026 00:00:09",
+      "version": 1795495892
+    },
+    {
+      "date": "18/11/2026",
+      "raw_date": "2026-11-18",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-18.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-18.jpg",
+      "rw12_time": "19/11/2026 00:00:08",
+      "rw34_time": "19/11/2026 00:00:10",
+      "version": 1795495891
+    },
+    {
+      "date": "16/11/2026",
+      "raw_date": "2026-11-16",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-16.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-16.jpg",
+      "rw12_time": "17/11/2026 00:00:09",
+      "rw34_time": "17/11/2026 00:00:11",
+      "version": 1795495892
+    },
+    {
+      "date": "15/11/2026",
+      "raw_date": "2026-11-15",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-15.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-15.jpg",
+      "rw12_time": "16/11/2026 00:00:09",
+      "rw34_time": "16/11/2026 00:00:11",
+      "version": 1795495890
+    },
+    {
+      "date": "14/11/2026",
+      "raw_date": "2026-11-14",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-14.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-14.jpg",
+      "rw12_time": "15/11/2026 00:00:07",
+      "rw34_time": "15/11/2026 00:00:10",
+      "version": 1795495890
+    },
+    {
+      "date": "13/11/2026",
+      "raw_date": "2026-11-13",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-13.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-13.jpg",
+      "rw12_time": "14/11/2026 00:00:08",
+      "rw34_time": "14/11/2026 00:00:11",
+      "version": 1795495891
+    },
+    {
+      "date": "12/11/2026",
+      "raw_date": "2026-11-12",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-12.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-12.jpg",
+      "rw12_time": "13/11/2026 00:00:05",
+      "rw34_time": "13/11/2026 00:00:08",
+      "version": 1795495888
+    },
+    {
+      "date": "11/11/2026",
+      "raw_date": "2026-11-11",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-11.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-11.jpg",
+      "rw12_time": "12/11/2026 00:00:07",
+      "rw34_time": "12/11/2026 00:00:09",
+      "version": 1795495888
+    },
+    {
+      "date": "10/11/2026",
+      "raw_date": "2026-11-10",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-10.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-10.jpg",
+      "rw12_time": "11/11/2026 00:00:08",
+      "rw34_time": "11/11/2026 00:00:10",
+      "version": 1795495888
+    },
+    {
+      "date": "09/11/2026",
+      "raw_date": "2026-11-09",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-09.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-09.jpg",
+      "rw12_time": "10/11/2026 00:00:07",
+      "rw34_time": "10/11/2026 00:00:09",
+      "version": 1795495886
+    },
+    {
+      "date": "08/11/2026",
+      "raw_date": "2026-11-08",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-08.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-08.jpg",
+      "rw12_time": "09/11/2026 00:00:07",
+      "rw34_time": "09/11/2026 00:00:09",
+      "version": 1795495886
+    },
+    {
+      "date": "07/11/2026",
+      "raw_date": "2026-11-07",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-07.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-07.jpg",
+      "rw12_time": "08/11/2026 00:00:09",
+      "rw34_time": "08/11/2026 00:00:11",
+      "version": 1795495886
+    },
+    {
+      "date": "06/11/2026",
+      "raw_date": "2026-11-06",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-06.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-06.jpg",
+      "rw12_time": "07/11/2026 00:00:07",
+      "rw34_time": "07/11/2026 00:00:10",
+      "version": 1795495884
+    },
+    {
+      "date": "05/11/2026",
+      "raw_date": "2026-11-05",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-05.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-05.jpg",
+      "rw12_time": "06/11/2026 00:00:07",
+      "rw34_time": "06/11/2026 00:00:10",
+      "version": 1795495884
+    },
+    {
+      "date": "04/11/2026",
+      "raw_date": "2026-11-04",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-04.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-04.jpg",
+      "rw12_time": "05/11/2026 00:00:07",
+      "rw34_time": "05/11/2026 00:00:10",
+      "version": 1795495884
+    },
+    {
+      "date": "03/11/2026",
+      "raw_date": "2026-11-03",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-03.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-03.jpg",
+      "rw12_time": "04/11/2026 00:00:07",
+      "rw34_time": "04/11/2026 00:00:09",
+      "version": 1795495883
+    },
+    {
+      "date": "02/11/2026",
+      "raw_date": "2026-11-02",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-02.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-02.jpg",
+      "rw12_time": "03/11/2026 00:00:08",
+      "rw34_time": "03/11/2026 00:00:10",
+      "version": 1795495883
+    },
+    {
+      "date": "01/11/2026",
+      "raw_date": "2026-11-01",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-01.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-01.jpg",
+      "rw12_time": "02/11/2026 00:00:08",
+      "rw34_time": "02/11/2026 00:00:10",
+      "version": 1795495883
+    },
+    {
+      "date": "31/10/2026",
+      "raw_date": "2026-10-31",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-31.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-31.jpg",
+      "rw12_time": "01/11/2026 00:00:08",
+      "rw34_time": "01/11/2026 00:00:10",
+      "version": 1795495881
+    },
+    {
+      "date": "30/10/2026",
+      "raw_date": "2026-10-30",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-30.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-30.jpg",
+      "rw12_time": "31/10/2026 00:00:09",
+      "rw34_time": "31/10/2026 00:00:11",
+      "version": 1795495881
+    },
+    {
+      "date": "29/10/2026",
+      "raw_date": "2026-10-29",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-29.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-29.jpg",
+      "rw12_time": "30/10/2026 00:00:07",
+      "rw34_time": "30/10/2026 00:00:09",
+      "version": 1795495882
+    },
+    {
+      "date": "28/10/2026",
+      "raw_date": "2026-10-28",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-28.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-28.jpg",
+      "rw12_time": "29/10/2026 00:00:07",
+      "rw34_time": "29/10/2026 00:00:09",
+      "version": 1795495880
+    },
+    {
+      "date": "27/10/2026",
+      "raw_date": "2026-10-27",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-27.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-27.jpg",
+      "rw12_time": "28/10/2026 00:00:07",
+      "rw34_time": "28/10/2026 00:00:09",
+      "version": 1795495880
+    },
+    {
+      "date": "26/10/2026",
+      "raw_date": "2026-10-26",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-26.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-26.jpg",
+      "rw12_time": "27/10/2026 00:00:06",
+      "rw34_time": "27/10/2026 00:00:08",
+      "version": 1795495880
+    },
+    {
+      "date": "25/10/2026",
+      "raw_date": "2026-10-25",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-25.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-25.jpg",
+      "rw12_time": "26/10/2026 00:00:06",
+      "rw34_time": "26/10/2026 00:00:08",
+      "version": 1795495879
+    },
+    {
+      "date": "24/10/2026",
+      "raw_date": "2026-10-24",
+      "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-10-24.jpg",
+      "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-10-24.jpg",
+      "rw12_time": "25/10/2026 00:00:07",
+      "rw34_time": "25/10/2026 00:00:09",
+      "version": 1795495878
+    }
+  ],
   "images": {
-    "RW12": "images/RW12_latest.jpg",
-    "RW34": "images/RW34_latest.jpg"
+    "RW12": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-23.jpg",
+    "RW34": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-23.jpg"
   },
   "images_time": {
-    "RW12": "24/11/2026 00:10:07",
-    "RW34": "24/11/2026 00:10:09"
+    "RW12": "24/11/2026 00:00:07",
+    "RW34": "24/11/2026 00:00:10"
   },
   "status": "success",
   "message": "อัปเดตข้อมูลอัตโนมัติสำเร็จ"
