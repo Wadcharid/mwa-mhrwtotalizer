@@ -1,5 +1,5 @@
 {
-  "updated_at": "24/11/2026 00:30:10",
+  "updated_at": "24/11/2026 11:33:49",
   "record_date": "23/11/2026",
   "rw_cmd_total": "1,527,000",
   "totalizer_rw_ph1": "3642150",
@@ -134,6 +134,9 @@
   ],
   "archive_count": 300,
   "max_archive_limit": 300,
+  "history_retention_days": 60,
+  "release_tag": "meter-archive",
+  "image_history": [],
   "images": {
     "RW12": "images/RW12_latest.jpg",
     "RW34": "images/RW34_latest.jpg"
