@@ -1,5 +1,5 @@
 {
-  "updated_at": "27/11/2026 00:00:16",
+  "updated_at": "27/11/2026 00:10:16",
   "record_date": "26/11/2026",
   "rw_cmd_total": "1,533,000",
   "totalizer_rw_ph1": "3653440",
@@ -142,9 +142,9 @@
       "raw_date": "2026-11-26",
       "rw12_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW12_2026-11-26.jpg",
       "rw34_url": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-26.jpg",
-      "rw12_time": "27/11/2026 00:00:08",
-      "rw34_time": "27/11/2026 00:00:10",
-      "version": 1795712415
+      "rw12_time": "27/11/2026 00:10:05",
+      "rw34_time": "27/11/2026 00:10:08",
+      "version": 1795713015
     },
     {
       "date": "25/11/2026",
@@ -440,8 +440,8 @@
     "RW34": "https://github.com/Wadcharid/mwa-mhrwtotalizer/releases/download/meter-archive/RW34_2026-11-26.jpg"
   },
   "images_time": {
-    "RW12": "27/11/2026 00:00:08",
-    "RW34": "27/11/2026 00:00:10"
+    "RW12": "27/11/2026 00:10:05",
+    "RW34": "27/11/2026 00:10:08"
   },
   "status": "success",
   "message": "อัปเดตข้อมูลอัตโนมัติสำเร็จ"
